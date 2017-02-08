@@ -1,0 +1,48 @@
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block bootstrap3_content %}
+
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">Movie_lens</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="">It's for study</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+
+{% endblock %}
+{% load staticfiles %}
+{% block title %}
+<div class="container marketing">
+<h2 class="featurette-heading">Movie_list</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if item_list %}
+<div class="container">
+    {% for item in item_list %}
+    <div class="col-xs-6 col-lg-4">
+        <h4><a href="{{item.url}}">
+        {{item.item_title }}
+        </a></h4>
+        <h6 class="masthead-brand">Rating {{ item.rating}} of 5</h6>
+        <p>{{ review.comment }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No reviews are available.</p>
+{% endif %}
+
+{% endblock %}
+
