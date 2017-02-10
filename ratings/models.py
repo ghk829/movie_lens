@@ -29,3 +29,8 @@ class Ratings(models.Model):
 	item=models.ForeignKey(Items)
 	rating =models.IntegerField(choices=RATING_CHOICES)
 	timestamp = models.IntegerField()
+
+class Recommend(models.Model):
+	user=models.ForeignKey(Users)
+	item=models.ForeignKey(Items)
+	rating=models.IntegerField()
